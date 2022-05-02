@@ -45,8 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
     '3',
     '+',
     '0',
-    '00',
     '.',
+    'ANS',
     '=',
   ];
 
@@ -141,6 +141,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.orange[300],
                       textColor: Colors.black,
                     );
+                  } else if (colorcheck(buttons[index]) == 5) {
+                    // ANS
+                    return MyButton(
+                      buttontapped: () {
+                        setState(() {
+                          userQuestion = userAnswer;
+                        });
+                      },
+                      buttonText: buttons[index],
+                      color: Colors.white,
+                      textColor: Colors.deepPurple,
+                    );
                   } else {
                     // Equals
                     return MyButton(
@@ -171,6 +183,8 @@ class _MyHomePageState extends State<MyHomePage> {
       r = 3;
     } else if (x == 'DEL') {
       r = 4;
+    } else if (x == 'ANS') {
+      r=5;
     }
     return r;
   }
